@@ -1,23 +1,15 @@
 import streamlit as st
 
+st.title("My Calculator")
 
+num1 = st.number_input("enter number 1:", value=0.0)
+num2 = st.number_input("enter number 2:", value=0.0)
 
-st.set_page_config(page_title="My Calculator", page_icon="🧮", layout="centered")
+operation = st.selectbox("operation select karo:", ["plus(+)", "Minus (-)", "multiply(x)", "divide (/)"])
 
-st.title("🧮 Simple Calculator")
-num1 = st.number_input("enter number 1:", value=0)
+result = None
 
-
-
-num2 = st.number_input("enter number 2:", value=0)
-
-
-
-operation = st.selectbox("enter operation?", ["plus (+)", "Minus (-)", "multiply (x)", "divide(/)"])
-
-
-if st.button("result "):
-    result = 0
+if st.button("Result dekho"):
     if operation == "plus(+)":
         result = num1 + num2
     elif operation == "Minus (-)":
@@ -29,11 +21,6 @@ if st.button("result "):
             result = num1 / num2
         else:
             st.error("0 se divide nahi ho sakta!")
-            result = None
-    
+
     if result is not None:
         st.success(f"Jawab hai: {result}")
-        
-
-
-
